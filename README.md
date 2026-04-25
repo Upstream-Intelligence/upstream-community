@@ -8,7 +8,11 @@
 
 The statistical and ML methodology behind Upstream's Care Intelligence Platform. Public CMS data only. No production model weights. No proprietary payer data. No PHI.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/Upstream-Intelligence/upstream-community?color=0454F1)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Upstream-Intelligence/upstream-community?style=flat&color=0454F1)](https://github.com/Upstream-Intelligence/upstream-community/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/Upstream-Intelligence/upstream-community?color=0454F1)](https://github.com/Upstream-Intelligence/upstream-community/commits/main)
+[![Issues](https://img.shields.io/github/issues/Upstream-Intelligence/upstream-community?color=0454F1)](https://github.com/Upstream-Intelligence/upstream-community/issues)
+[![Python](https://img.shields.io/badge/python-3.10%2B-0454F1)](https://www.python.org/)
 [![upstream.cx](https://img.shields.io/badge/upstream-cx-0454F1)](https://upstream.cx)
 
 </div>
