@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a bug in upstream-community
+labels: ["bug"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Which module?
+      placeholder: e.g. denial_clustering.py
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: Minimal reproduction
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior or error
+    validations:
+      required: true

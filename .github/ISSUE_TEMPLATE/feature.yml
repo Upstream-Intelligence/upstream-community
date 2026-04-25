@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest a new module, technique, or notebook
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What methodology question does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References or prior art
