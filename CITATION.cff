@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this software or methodology in research, please cite it as below."
+type: software
+title: "upstream-community: Open ML reference implementations for healthcare denial detection"
+abstract: "Reference implementations of statistical and machine learning methods for healthcare denial prediction, payer behavior drift detection, and payer behavioral clustering. Built on public CMS data including SynPUF, CARC, RARC, NCCI, and the Federal Register API. Distributed under MIT license. The methodology is open. Production model weights remain private."
+authors:
+  - name: "Upstream Intelligence"
+    website: "https://upstream.cx"
+    email: "hello@upstream.cx"
+url: "https://github.com/Upstream-Intelligence/upstream-community"
+repository-code: "https://github.com/Upstream-Intelligence/upstream-community"
+license: MIT
+keywords:
+  - healthcare
+  - revenue cycle management
+  - denial prediction
+  - payer behavior
+  - drift detection
+  - machine learning
+  - catboost
+  - kolmogorov smirnov
+  - chi square
+  - kmeans clustering
+  - shap explainability
+  - cms
+  - medical billing
+year: 2026
+date-released: 2026-04-25
+preferred-citation:
+  type: software
+  title: "upstream-community: Open ML reference implementations for healthcare denial detection"
+  authors:
+    - name: "Upstream Intelligence"
+  year: 2026
+  url: "https://github.com/Upstream-Intelligence/upstream-community"
