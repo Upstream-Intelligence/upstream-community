@@ -4,6 +4,8 @@
 
 # upstream-community
 
+**Catches the denial before it happens.** Open-source tooling for healthcare operators who need early-warning payer behavior intelligence.
+
 ### Open ML reference implementations for healthcare denial detection.
 
 The statistical and ML methodology behind Upstream's Care Intelligence Platform. Public CMS data only. No production model weights. No proprietary payer data. No PHI.
