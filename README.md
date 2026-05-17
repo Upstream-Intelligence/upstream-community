@@ -1,6 +1,11 @@
 <div align="center">
 
-<img src="https://upstream.cx/brand/upstream-wordmark-light.svg" alt="Upstream" width="220" />
+<picture>
+  <source media="(prefers-color-scheme: dark)"
+          srcset="https://raw.githubusercontent.com/Upstream-Intelligence/.github/main/.github/assets/upstream-wordmark-dark.svg">
+  <img src="https://raw.githubusercontent.com/Upstream-Intelligence/.github/main/.github/assets/upstream-wordmark-light.svg"
+       alt="Upstream" width="220" />
+</picture>
 
 # upstream-community
 
@@ -215,11 +220,14 @@ Upstream's production model weights, payer behavioral graph, and operator contri
 
 ## Related
 
-- [upstream.cx](https://upstream.cx) Care Intelligence Platform
-- [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) Bring Upstream into Claude
-- [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) Claude Code skill pack
-- [upstream.cx/developers](https://upstream.cx/developers) API documentation
-- [Newsletter](https://upstream.cx/newsletter) Monthly network signals digest
+Part of the [Upstream Intelligence ecosystem](https://github.com/Upstream-Intelligence).
+
+- [upstream-mcp](https://github.com/Upstream-Intelligence/upstream-mcp) — MCP server for Claude
+- [upstream-skills](https://github.com/Upstream-Intelligence/upstream-skills) — Claude Code skills for billing teams
+- **upstream-community** — you are here
+- [awesome-payer-risk](https://github.com/Upstream-Intelligence/awesome-payer-risk) — curated RCM resources
+
+Product: [upstream.cx](https://upstream.cx) · [Newsletter](https://upstream.cx/newsletter) · [Pricing](https://upstream.cx/pricing)
 
 ---
 
