@@ -53,6 +53,7 @@ Works across ABA, SNF, PT/OT, dental, dialysis, imaging, home health, and behavi
 | `dental_denial_clustering.py` | Specialty specific clustering using CDT code patterns. Compatible with ADA claim data. |
 | `aba_auth_predictor.py` | Gradient boosted authorization approval predictor. ABA reference implementation. Use as a template for other specialties (dental, SNF, PT/OT, imaging). |
 | `payer_behavior_detector.py` | Composite payer fingerprinting using denial rate trends, payment velocity, and adjudication pattern shifts. Powers the `check_payer_behavior` MCP tool. |
+| `synthetic_data_fixtures.py` | Public teaser fixtures for synthetic-data methodology. Excludes full commercial pack catalog, scenario manifests, readiness reports, datasets, weights, and proprietary payer distributions. |
 
 ### `notebooks/` walkthroughs
 
@@ -66,6 +67,14 @@ Works across ABA, SNF, PT/OT, dental, dialysis, imaging, home health, and behavi
 No data is committed. See `data/README.md` for the public CMS datasets to download.
 
 `sample_claims_schema.py` generates a 500 row synthetic CSV for local testing.
+
+### Synthetic data methodology teasers
+
+`reference/synthetic_data_fixtures.py` and `reference/synthetic-data-methodology.md` show how to discuss generated-from-scratch synthetic claims safely in public.
+
+Included: representative pack families, a few public field examples, three scenario examples, and a safe denial-pattern walkthrough.
+
+Excluded: full commercial pack catalog, scenario manifests, readiness/moat reports, source coverage matrices, generated datasets, delivery artifacts, production weights, proprietary payer distributions, PHI, and customer data. Those belong behind Upstream Data paid API, service-token, or delivery gates.
 
 ---
 
