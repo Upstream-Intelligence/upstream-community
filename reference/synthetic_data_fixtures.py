@@ -99,6 +99,64 @@ def list_synthetic_pack_teasers() -> list[dict]:
     return [fixture.to_dict() for fixture in PUBLIC_TEASER_FIXTURES]
 
 
+def synthetic_public_pack_teasers() -> list[dict]:
+    """Canonical public-safe teaser helper expected by upstream-data audits."""
+    return list_synthetic_pack_teasers()
+
+
+def synthetic_marketplace_catalog_reference() -> dict:
+    """Return a public methodology reference without commercial pack depth."""
+    payload = {
+        "catalog_surface": "public teaser methodology only",
+        "representative_pack_count": len(PUBLIC_TEASER_FIXTURES),
+        "representative_packs": [fixture.representative_pack for fixture in PUBLIC_TEASER_FIXTURES],
+        "excluded_from_public": (
+            "full commercial pack catalog",
+            "generated datasets",
+            "paid scenario manifests",
+            "readiness scorecards",
+            "payer archetype weights",
+            "contract simulation details",
+            "release ledgers",
+            "customer-specific synthetic twins",
+        ),
+        "synthetic_only": True,
+        "no_phi": True,
+        "no_customer_data": True,
+    }
+    assert_public_safe_fixture(payload)
+    return payload
+
+
+def synthetic_guardrail_reference() -> dict:
+    """Return the public/private boundary language for community examples."""
+    return {
+        "allowed_public_surface": (
+            "schema examples",
+            "tiny synthetic teaser fixtures",
+            "methodology explanation",
+            "public source category descriptions",
+        ),
+        "paid_or_private_surface": (
+            "full datasets",
+            "scenario depth",
+            "adjudication traces",
+            "transaction/event corpora",
+            "agent evaluation tasks",
+            "payer archetype weights",
+            "contract and fee schedule simulation",
+            "release ledgers",
+            "enterprise configs",
+        ),
+        "required_language": (
+            "generated-from-scratch synthetic data",
+            "no PHI",
+            "no customer data",
+            "no real-payer-truth claims",
+        ),
+    }
+
+
 def build_denial_pattern_walkthrough(
     pack_family: str = "behavioral_health",
     scenario: str = "authorization-surge",
