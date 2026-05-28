@@ -206,7 +206,7 @@ See `data/README.md` for all supported public datasets.
 The healthcare RCM community has historically operated as a black box. Vendors guard their methodology. Operators have no way to validate vendor claims. Upstream publishes the methodology so the community can learn from it, audit it, and contribute back.
 
 **Can I run this on my own claims data?**
-Yes, if you have the right tenant boundaries and authorizations. The code accepts any DataFrame matching the schema in `sample_claims_schema.py`. PHI handling is your responsibility.
+Not in public examples, shared notebooks, community fixtures, or synthetic-data tooling. Do not submit PHI, customer claims, customer data, or tenant data to this repository. If you adapt the reference methodology inside your own controlled environment, you are responsible for your own legal, security, privacy, and tenant-boundary controls.
 
 **Will Upstream open source the production system?**
 No. The production system contains operator contributed network signals, payer behavioral graphs trained on real time data, and customer specific tenant logic that cannot be extracted without compromising the network. The methodology is open. The production application stays private.
