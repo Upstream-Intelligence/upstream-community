@@ -4,7 +4,7 @@ Public synthetic data methodology fixtures for Upstream Data.
 This module intentionally publishes a small teaser fixture set. It demonstrates
 safe methodology without exposing the full commercial pack catalog, buyer
 scenario library, source coverage matrix, generated datasets, production model
-weights, proprietary payer distributions, customer data, PHI, or de-identified
+weights, proprietary payer distributions, customer data, PHI, or record-anonymized
 patient records.
 """
 

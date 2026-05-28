@@ -20,7 +20,7 @@ These fixtures document how Upstream Data packs can be used for public QA, demos
 - Production model weights
 - Proprietary payer behavioral graphs
 - Customer claims, EOBs, notes, or exports
-- PHI or de-identified patient records
+- PHI or record-anonymized patient records
 - Claims that synthetic fixtures represent observed payer truth
 
 ## Reproducible Example
@@ -45,7 +45,7 @@ Use this wording when publishing examples:
 
 Avoid this wording:
 
-- "HIPAA de-identified patient data"
-- "Real payer truth"
+- "Record-anonymized patient data"
+- "Observed payer fact"
 - "Customer-derived claims"
 - "Observed commercial payer distribution"
