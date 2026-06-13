@@ -9,7 +9,7 @@
 
 # upstream-community
 
-**Catches the denial before it happens.** Open-source tooling for healthcare operators who need early-warning payer behavior intelligence.
+Open-source tooling for healthcare operators who need early-warning payer behavior intelligence.
 
 ### Open ML reference implementations for healthcare denial detection.
 
@@ -242,7 +242,7 @@ Product: [upstream.cx](https://upstream.cx) · [Newsletter](https://upstream.cx/
 
 ---
 
-Built by [Upstream Intelligence](https://upstream.cx). Read the methodology at [engine.upstream.cx](https://engine.upstream.cx). Pioneer Program: [upstream.cx/pioneer](https://upstream.cx/pioneer).
+Built by [Upstream Intelligence](https://upstream.cx). Pioneer Program: [upstream.cx/pioneer](https://upstream.cx/pioneer).
 
 <div align="center">
 
