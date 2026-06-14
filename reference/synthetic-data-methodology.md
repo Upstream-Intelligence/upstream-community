@@ -1,10 +1,10 @@
 # Synthetic Data Methodology Fixtures
 
-These fixtures document how Upstream Data packs can be used for public QA, demos, and agent evaluation without exposing PHI, customer data, production model weights, proprietary payer distributions, or the full commercial pack catalog.
+These fixtures document how Upstream Data datasets can be used for public QA, demos, and agent evaluation without exposing PHI, customer data, production model weights, proprietary payer distributions, or the full commercial dataset catalog.
 
 ## What Is Included
 
-- A small representative teaser set across broad pack families
+- A small representative teaser set across broad specialties
 - Public-safe schema field examples with only 1-2 fields per family
 - Three public scenario examples: authorization surge, documentation crackdown, and reimbursement slowdown
 - Source/provenance categories that explain plausibility limits
@@ -12,9 +12,9 @@ These fixtures document how Upstream Data packs can be used for public QA, demos
 
 ## What Is Excluded
 
-- Full commercial pack catalog depth
+- Full commercial dataset catalog depth
 - Full buyer scenario manifests
-- Pack readiness and moat reports
+- Dataset readiness and moat reports
 - Source coverage matrices
 - Provider, fulfillment, publication, and delivery contracts
 - Production model weights

@@ -2,7 +2,7 @@
 Public synthetic data methodology fixtures for Upstream Data.
 
 This module intentionally publishes a small teaser fixture set. It demonstrates
-safe methodology without exposing the full commercial pack catalog, buyer
+safe methodology without exposing the full commercial dataset catalog, buyer
 scenario library, source coverage matrix, generated datasets, production model
 weights, proprietary payer distributions, customer data, PHI, or record-anonymized
 patient records.
@@ -43,9 +43,9 @@ PUBLIC_TEASER_SCENARIOS = (
 
 
 @dataclass(frozen=True)
-class SyntheticPackTeaser:
-    pack_family: str
-    representative_pack: str
+class SyntheticDatasetTeaser:
+    specialty: str
+    dataset_id: str
     public_field_examples: tuple[str, ...]
     public_scenarios: tuple[str, ...] = PUBLIC_TEASER_SCENARIOS
     synthetic_only: bool = True
@@ -58,30 +58,30 @@ class SyntheticPackTeaser:
         return payload
 
 
-PUBLIC_TEASER_FIXTURES: tuple[SyntheticPackTeaser, ...] = (
-    SyntheticPackTeaser(
-        pack_family="behavioral_health",
-        representative_pack="aba",
+PUBLIC_TEASER_FIXTURES: tuple[SyntheticDatasetTeaser, ...] = (
+    SyntheticDatasetTeaser(
+        specialty="behavioral_health",
+        dataset_id="aba",
         public_field_examples=("authorization_window_days", "therapy_unit_type"),
     ),
-    SyntheticPackTeaser(
-        pack_family="dental",
-        representative_pack="dental",
+    SyntheticDatasetTeaser(
+        specialty="dental",
+        dataset_id="dental",
         public_field_examples=("procedure_category", "fee_schedule_variance_band"),
     ),
-    SyntheticPackTeaser(
-        pack_family="facility",
-        representative_pack="snf-ma",
+    SyntheticDatasetTeaser(
+        specialty="facility",
+        dataset_id="snf-ma",
         public_field_examples=("length_of_stay_band", "ma_contract_variance_band"),
     ),
-    SyntheticPackTeaser(
-        pack_family="home_based_care",
-        representative_pack="home-health",
+    SyntheticDatasetTeaser(
+        specialty="home_based_care",
+        dataset_id="home-health",
         public_field_examples=("certification_period_day", "noa_timing_band"),
     ),
-    SyntheticPackTeaser(
-        pack_family="outpatient",
-        representative_pack="pt-ot",
+    SyntheticDatasetTeaser(
+        specialty="outpatient",
+        dataset_id="pt-ot",
         public_field_examples=("therapy_discipline", "visit_limit_remaining"),
     ),
 )
@@ -94,24 +94,31 @@ def assert_public_safe_fixture(payload: dict) -> None:
         raise ValueError(f"Fixture contains forbidden PHI-like fields: {sorted(forbidden)}")
 
 
-def list_synthetic_pack_teasers() -> list[dict]:
+def list_synthetic_dataset_teasers() -> list[dict]:
     """Return public teaser fixtures only, not the full commercial catalog."""
     return [fixture.to_dict() for fixture in PUBLIC_TEASER_FIXTURES]
 
 
-def synthetic_public_pack_teasers() -> list[dict]:
+def synthetic_public_dataset_teasers() -> list[dict]:
     """Canonical public-safe teaser helper expected by upstream-data audits."""
-    return list_synthetic_pack_teasers()
+    return list_synthetic_dataset_teasers()
+
+
+# Deprecated cross-repo shims. upstream-data audits referenced the pre-de-pack names;
+# keep them working until upstream-data updates its audit to the dataset vocabulary,
+# then remove at the v4.0 window. Do not use in new code.
+list_synthetic_pack_teasers = list_synthetic_dataset_teasers
+synthetic_public_pack_teasers = synthetic_public_dataset_teasers
 
 
 def synthetic_marketplace_catalog_reference() -> dict:
-    """Return a public methodology reference without commercial pack depth."""
+    """Return a public methodology reference without commercial dataset depth."""
     payload = {
         "catalog_surface": "public teaser methodology only",
-        "representative_pack_count": len(PUBLIC_TEASER_FIXTURES),
-        "representative_packs": [fixture.representative_pack for fixture in PUBLIC_TEASER_FIXTURES],
+        "dataset_count": len(PUBLIC_TEASER_FIXTURES),
+        "dataset_ids": [fixture.dataset_id for fixture in PUBLIC_TEASER_FIXTURES],
         "excluded_from_public": (
-            "full commercial pack catalog",
+            "full commercial dataset catalog",
             "generated datasets",
             "paid scenario manifests",
             "readiness scorecards",
@@ -158,7 +165,7 @@ def synthetic_guardrail_reference() -> dict:
 
 
 def build_denial_pattern_walkthrough(
-    pack_family: str = "behavioral_health",
+    specialty: str = "behavioral_health",
     scenario: str = "authorization-surge",
 ) -> dict:
     """Build a safe, non-commercial-depth denial-pattern walkthrough."""
@@ -168,17 +175,17 @@ def build_denial_pattern_walkthrough(
             "Full scenario manifests are served by paid Upstream Data APIs."
         )
     fixture = next(
-        (item for item in PUBLIC_TEASER_FIXTURES if item.pack_family == pack_family),
+        (item for item in PUBLIC_TEASER_FIXTURES if item.specialty == specialty),
         None,
     )
     if fixture is None:
-        raise KeyError(f"Unknown public teaser pack family: {pack_family}")
+        raise KeyError(f"Unknown public teaser specialty: {specialty}")
 
     return {
-        "pack_family": pack_family,
-        "representative_pack": fixture.representative_pack,
+        "specialty": specialty,
+        "dataset_id": fixture.dataset_id,
         "scenario": scenario,
-        "synthetic_claim_id": f"syn-{fixture.representative_pack}-claim-0001",
+        "synthetic_claim_id": f"syn-{fixture.dataset_id}-claim-0001",
         "synthetic_payer_archetype": "commercial_like",
         "denial_pattern": {
             "denial_reason_family": "authorization",
@@ -188,7 +195,7 @@ def build_denial_pattern_walkthrough(
         "public_field_examples": fixture.public_field_examples,
         "public_source_categories": PUBLIC_SOURCE_CATEGORIES,
         "paywalled_depth": (
-            "full commercial pack catalog",
+            "full commercial dataset catalog",
             "full scenario manifests",
             "source coverage matrices",
             "readiness and moat reports",

@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# Canon guard: Upstream is ONE procedural platform, no packs. The legacy
-# specialty/pack machinery must never reappear in this repo. Mirrors
-# upstream-v2's care/tests/test_models.py::test_customer_has_no_pack_or_specialty_drift.
-# Scope is the dead IDENTIFIERS only, which never appear in the synthetic-data
-# product surface, so this needs no allowlist and cannot false-fail on the
-# pending synthetic-data de-pack migration.
+# Canon guard: Upstream is ONE procedural platform, no packs. Two checks:
+#   1. Dead platform IDENTIFIERS, scanned repo-wide (they never appear in prose).
+#   2. The legacy synthetic-data "pack" vocabulary in the reference fixtures + docs.
+#      Phase 4 Category B re-derived these to dataset vocabulary (SyntheticDatasetTeaser,
+#      specialty, dataset_id). The deprecated cross-repo aliases (list_synthetic_pack_teasers,
+#      synthetic_public_pack_teasers) are intentionally NOT in the banned set; they remain
+#      until upstream-data updates its audit, then drop at v4.0.
+# Mirrors upstream-v2's test_customer_has_no_pack_or_specialty_drift and upstream-mcp's
+# test/canon.test.ts.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -22,4 +25,14 @@ if [ -n "$hits" ]; then
   exit 1
 fi
 
-echo "canon OK: no legacy pack/specialty identifiers"
+SYNTH_PATTERN='SyntheticPackTeaser|pack_family|representative_pack|get_synthetic_pack|list_synthetic_data_packs|compile_synthetic_scenario_dsl'
+synth_hits="$(grep -rInE "$SYNTH_PATTERN" "$ROOT/reference" "$ROOT/README.md" \
+  --exclude-dir=.git 2>/dev/null || true)"
+
+if [ -n "$synth_hits" ]; then
+  echo "FAIL: legacy synthetic-data pack vocabulary reintroduced:" >&2
+  echo "$synth_hits" >&2
+  exit 1
+fi
+
+echo "canon OK: no legacy pack/specialty identifiers or synthetic pack vocabulary"
