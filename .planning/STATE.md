@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: phase-1-canon-anchor
 milestone_name: canon-anchor
 status: initialized
-last_updated: "2026-06-12T00:00:00-05:00"
-last_activity: 2026-06-12
+last_updated: "2026-06-13T22:00:00-05:00"
+last_activity: 2026-06-13
 progress:
   total_phases: 3
   completed_phases: 0
@@ -34,5 +34,16 @@ link removed. The public-safe boundary is preserved: NO private runtime vocab
 `02-VALIDATION` row 02-03-02 now ABSENCE-checks this README for that vocab via
 `02-03-drift-gate.sh` (it no longer wrongly demands the vocab be present).
 
-This repo is NON-DEPLOYING. **Root-controlled next move:** advisor gate -> merge
-PR #27 -> one Cloud Run deploy -> live-HTTP verify. See `../.planning/STATE.md`.
+This repo is NON-DEPLOYING. The milestone SHIPPED (PR #27 merged, endpoint live).
+
+## Status (2026-06-13, Phase 4 - No-Packs Framing Convergence)
+
+Category A DONE + pushed (`chore: drop Dental Pack framing + add legacy-identifier
+canon guard`): "Dental Pack intelligence engine" -> "dental denial intelligence
+engine"; added `scripts/check-canon.sh` + `.github/workflows/canon.yml` (bans the
+nine legacy identifiers, proven able to FAIL, enforced by a dedicated workflow
+because the org reusable-ci python test step is advisory: `|| true` and needs
+`pyproject.toml`, which this repo lacks). Deferred Category B: the synthetic-data
+`SyntheticPackTeaser` plus methodology-doc pack vocabulary moves with the cross-repo
+re-derivation once upstream-data de-packs. Root-controlled. See
+`../.planning/phases/04-no-packs-framing-convergence/`.
