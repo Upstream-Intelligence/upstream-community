@@ -100,15 +100,8 @@ def list_synthetic_dataset_teasers() -> list[dict]:
 
 
 def synthetic_public_dataset_teasers() -> list[dict]:
-    """Canonical public-safe teaser helper expected by upstream-data audits."""
+    """Canonical public-safe teaser helper (dataset vocabulary)."""
     return list_synthetic_dataset_teasers()
-
-
-# Deprecated cross-repo shims. upstream-data audits referenced the pre-de-pack names;
-# keep them working until upstream-data updates its audit to the dataset vocabulary,
-# then remove at the v4.0 window. Do not use in new code.
-list_synthetic_pack_teasers = list_synthetic_dataset_teasers
-synthetic_public_pack_teasers = synthetic_public_dataset_teasers
 
 
 def synthetic_marketplace_catalog_reference() -> dict:

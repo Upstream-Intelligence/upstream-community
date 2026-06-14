@@ -4,8 +4,8 @@
 #   2. The legacy synthetic-data "pack" vocabulary in the reference fixtures + docs.
 #      Phase 4 Category B re-derived these to dataset vocabulary (SyntheticDatasetTeaser,
 #      specialty, dataset_id). The deprecated cross-repo aliases (list_synthetic_pack_teasers,
-#      synthetic_public_pack_teasers) are intentionally NOT in the banned set; they remain
-#      until upstream-data updates its audit, then drop at v4.0.
+#      synthetic_public_pack_teasers) were dropped 2026-06-14 once upstream-data updated its
+#      bridge, and are now banned so they cannot return.
 # Mirrors upstream-v2's test_customer_has_no_pack_or_specialty_drift and upstream-mcp's
 # test/canon.test.ts.
 set -euo pipefail
@@ -25,7 +25,7 @@ if [ -n "$hits" ]; then
   exit 1
 fi
 
-SYNTH_PATTERN='SyntheticPackTeaser|pack_family|representative_pack|get_synthetic_pack|list_synthetic_data_packs|compile_synthetic_scenario_dsl'
+SYNTH_PATTERN='SyntheticPackTeaser|pack_family|representative_pack|get_synthetic_pack|list_synthetic_data_packs|compile_synthetic_scenario_dsl|list_synthetic_pack_teasers|synthetic_public_pack_teasers'
 synth_hits="$(grep -rInE "$SYNTH_PATTERN" "$ROOT/reference" "$ROOT/README.md" \
   --exclude-dir=.git 2>/dev/null || true)"
 
