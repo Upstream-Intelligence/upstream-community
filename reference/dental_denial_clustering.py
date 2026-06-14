@@ -5,7 +5,7 @@ CDT code cluster detection for dental billing intelligence.
 Detects downcoding patterns, bundling violations, frequency limit
 violations, and silent PPO network alerts.
 
-This methodology powers Upstream's Dental Pack intelligence engine.
+This methodology powers Upstream's dental denial intelligence engine.
 """
 
 from __future__ import annotations
