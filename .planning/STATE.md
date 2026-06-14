@@ -43,7 +43,16 @@ canon guard`): "Dental Pack intelligence engine" -> "dental denial intelligence
 engine"; added `scripts/check-canon.sh` + `.github/workflows/canon.yml` (bans the
 nine legacy identifiers, proven able to FAIL, enforced by a dedicated workflow
 because the org reusable-ci python test step is advisory: `|| true` and needs
-`pyproject.toml`, which this repo lacks). Deferred Category B: the synthetic-data
-`SyntheticPackTeaser` plus methodology-doc pack vocabulary moves with the cross-repo
-re-derivation once upstream-data de-packs. Root-controlled. See
-`../.planning/phases/04-no-packs-framing-convergence/`.
+`pyproject.toml`, which this repo lacks).
+
+Category B DONE (2026-06-14, unblocked by upstream-data v3.40 + the MCP
+re-derivation): `reference/synthetic_data_fixtures.py` de-packed -- `SyntheticPackTeaser`
+-> `SyntheticDatasetTeaser`, `pack_family` -> `specialty`, `representative_pack` ->
+`dataset_id`, catalog-reference keys -> `dataset_count`/`dataset_ids`. Deprecated
+cross-repo shims `list_synthetic_pack_teasers` / `synthetic_public_pack_teasers` kept
+(upstream-data audits referenced the old names) -- FLAGGED for the concurrent
+session to update its audit, then drop at v4.0. methodology-doc + README pack
+vocabulary -> dataset/specialty. `check-canon.sh` extended to ban the synthetic pack
+vocabulary (SyntheticPackTeaser/pack_family/representative_pack/...), proven able to
+FAIL; aliases intentionally excluded. Python executes, asserts public-safe. See
+`../.planning/phases/04-no-packs-framing-convergence/04-B-PLAN-synthetic-data-redrive.md`.
