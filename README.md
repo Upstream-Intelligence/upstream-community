@@ -36,7 +36,7 @@ This is the open methodology. Not the production engine.
 
 Production code. The production system uses 40 plus features, live behavioral graphs, real time 835 ingestion, and trained model weights that stay private. This repository teaches the patterns. The platform applies them at scale across the operator network.
 
-Works across ABA, SNF, PT/OT, dental, dialysis, imaging, home health, and behavioral health.
+It applies across healthcare specialty practices as one connected system.
 
 ---
 
@@ -242,7 +242,7 @@ Product: [upstream.cx](https://upstream.cx) · [Newsletter](https://upstream.cx/
 
 ---
 
-Built by [Upstream Intelligence](https://upstream.cx). Pioneer Program: [upstream.cx/pioneer](https://upstream.cx/pioneer).
+Built by [Upstream Intelligence](https://upstream.cx).
 
 <div align="center">
 
