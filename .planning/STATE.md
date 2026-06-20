@@ -2,19 +2,20 @@
 gsd_state_version: 1.0
 milestone: phase-1-canon-anchor
 milestone_name: canon-anchor
-status: initialized
-last_updated: "2026-06-13T22:00:00-05:00"
-last_activity: 2026-06-13
+status: completed
+last_updated: "2026-06-17T20:45:00-05:00"
+last_activity: 2026-06-14
+superseded_by: "../.planning/STATE.md (root control plane); shipped via root plans 02-03 + Phase 4 Category A/B"
 progress:
-  total_phases: 3
-  completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_phases: 1
+  completed_phases: 1
+  total_plans: 3
+  completed_plans: 3
+  percent: 100
 product_readiness:
-  status: initialized
-  estimated_completion_band: "not started"
-  note: "This repo tracks public-methodology alignment."
+  status: completed
+  estimated_completion_band: "100% (public-methodology slice shipped + pushed)"
+  note: "Public-methodology alignment complete: 02-03 minimal drift fix, Phase 4 Category A (Dental Pack->dental denial + canon guard), Category B (pack->dataset de-pack), and the 2026-06-14 shim cleanup all done and pushed. No open follow-on. Local 3-phase skeleton superseded by root execution."
 ---
 
 # State

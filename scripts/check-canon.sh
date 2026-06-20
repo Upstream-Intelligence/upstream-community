@@ -35,4 +35,20 @@ if [ -n "$synth_hits" ]; then
   exit 1
 fi
 
-echo "canon OK: no legacy pack/specialty identifiers or synthetic pack vocabulary"
+# 3. Retired pricing/program framing. Pioneer / Founding 5 / "$49 locked for life"
+#    are RETIRED (2026-06-14 v2 de-drift; current tiers = Assist / Pay-as-you-go /
+#    Co-pilot / Autopilot). The pioneer-claim issue template survived checks 1-2
+#    because they only ban pack IDENTIFIERS, not pricing copy. Scanned on the public
+#    surfaces (README, reference docs, .github); .planning history is excluded.
+RETIRED_PATTERN='pioneer|founding 5|founding pioneer|locked for life|\$49|\$349'
+retired_hits="$(grep -rIniE "$RETIRED_PATTERN" "$ROOT/README.md" "$ROOT/reference" "$ROOT/.github" \
+  --exclude="check-canon.sh" 2>/dev/null || true)"
+
+if [ -n "$retired_hits" ]; then
+  echo "FAIL: retired Pioneer / pricing framing on a public surface:" >&2
+  echo "$retired_hits" >&2
+  echo "Current canon: Assist (free) / Pay as you go / Co-pilot / Autopilot. No Pioneer." >&2
+  exit 1
+fi
+
+echo "canon OK: no legacy pack/specialty identifiers, synthetic pack vocabulary, or retired pricing framing"
